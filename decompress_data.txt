@@ -1,0 +1,2 @@
+file C:/Users/yyyy/Qt/jobs/build-turf_club_statistic-Qt5_6_0_vc2015_32-Release/turf_club_statistic/turfclub_SingaporeRaceCard.sqlite.zip turfclub_SingaporeRaceCard.sqlite
+folder C:/Users/yyyy/Qt/jobs/build-turf_club_statistic-Qt5_6_0_vc2015_32-Release/turf_club_statistic/color.zip color
