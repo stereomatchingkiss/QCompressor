@@ -39,7 +39,12 @@ QCompressor
 
 Load targets from new text file
 ```
-QCompressor my_compress.txt my_decompress.txt
+QCompressor -c my_compress.txt -u my_decompress.txt
+```
+
+Show help
+```
+QCompressor --help
 ```
 
 ##Compress
