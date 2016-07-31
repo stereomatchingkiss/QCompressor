@@ -51,31 +51,30 @@ int main(int argc, char *argv[])
     qDebug()<<"\nCompress/Uncompress exit";
 }
 
-void compress(QString const &compress_type,
-              QString const &file_to_compress,
+void compress(QString const &file_to_compress,
               QString const &compress_as);
 
 void decompress(QString const &compress_type,
                 QString const &file_to_decompress,
                 QString const &decompress_as);
 
-void compress(QString const &compress_type,
-              QString const &file_to_compress,
+void compress(QString const &file_to_compress,
               QString const &compress_as)
 {
-    if(compress_type == "file"){
-        qDebug()<<"compress "<<QFileInfo(file_to_compress).fileName()
+    QFileInfo file_info(file_to_compress);
+    if(file_info.isFile()){
+        qDebug()<<"compress "<<file_info.fileName()
                <<" to "<<QFileInfo(compress_as).fileName();
         if(!qte::cp::compress(file_to_compress, compress_as)){
-            qDebug()<<"cannot compress "<<QFileInfo(file_to_compress).fileName()
+            qDebug()<<"cannot compress "<<file_info.fileName()
                    <<" to "<<QFileInfo(compress_as).fileName();
         }
-    }else if(compress_type == "folder"){
-        qDebug()<<"compress "<<QFileInfo(file_to_compress).fileName()
+    }else if(file_info.isDir()){
+        qDebug()<<"compress "<<file_info.fileName()
                <<" to "<<QFileInfo(compress_as).fileName();
         qte::cp::folder_compressor fc;
         if(!fc.compress_folder(file_to_compress, compress_as)){
-            qDebug()<<"cannot compress "<<QFileInfo(file_to_compress).fileName()
+            qDebug()<<"cannot compress "<<file_info.fileName()
                    <<" to "<<QFileInfo(compress_as).fileName();
         }
     }
@@ -92,10 +91,14 @@ void compress_decompress(QString const &file_location, bool is_compress = true)
             QString compress_type;
             QString input_file;
             QString output_as;
-            read_line>>compress_type>>input_file>>output_as;
+            if(is_compress){
+                read_line>>input_file>>output_as;
+            }else{
+                read_line>>compress_type>>input_file>>output_as;
+            }
             if(read_line.status() == QTextStream::Ok){
                 if(is_compress){
-                    compress(compress_type, input_file, output_as);
+                    compress(input_file, output_as);
                 }else{
                     decompress(compress_type, input_file, output_as);
                 }
