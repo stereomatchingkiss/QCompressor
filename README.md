@@ -2,12 +2,6 @@
 
 A simple command line tools to zip/unzip files/folders by the qCompress api provided by Qt5.
 
-# Motivation
-
-- Show the power of [img_hash module](https://github.com/stereomatchingkiss/opencv_contrib/tree/img_hash/modules/img_hash)
-- Create a platform to demonstrate the performance of different algorithms
-- It is fun
-
 # Dependencies
 
 The dependencies of this project are
