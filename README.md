@@ -27,8 +27,8 @@ into your make file
 #How to use it
 
 This program use text file to indicate the files/folders you want to compress/decompress, 
-by default the text file of compress is "compress_data.txt", the text file of decompress is
-"decompress_data.txt".
+by default the text file of compress is "compress_data.tsv", the text file of decompress is
+"decompress_data.tsv".
 
 ##Command line examples
 
@@ -39,7 +39,7 @@ QCompressor
 
 Load targets from new text file
 ```
-QCompressor -c my_compress.txt -u my_decompress.txt
+QCompressor -c my_compress.tsv -u my_decompress.tsv
 ```
 
 Show help
@@ -50,13 +50,19 @@ QCompressor --help
 ##Compress
 
 Specify the file/folder you want to compress, and the desire output.Example
-
-```
-C:/Users/yyyy/Qt/jobs/build-turf_club_statistic-Qt5_6_0_vc2015_32-Release/turf_club_statistic/turfclub_SingaporeRaceCard.sqlite turfclub_SingaporeRaceCard.sqlite.zip 
-C:/Users/yyyy/Qt/jobs/build-turf_club_statistic-Qt5_6_0_vc2015_32-Release/turf_club_statistic/color color.zip
-```
-
 First column is the file/folder you want to compress, second column is the absolute path after compress
+
+```
+C:/turf_club_statistic/turfclub_SingaporeRaceCard.sqlite	turfclub_SingaporeRaceCard.sqlite.zip 
+C:/turf_club_statistic/color	color.zip
+```
+
+Specify the folder(target folder) you want to compress, the desire output, the file/folder you do not want to compress in the target folder
+First column is the file/folder you want to compress, second column is the absolute path after compress, third...n columns are the files/folders you want to exclude
+
+```
+C:/turf_club_statistic/turfclub_SingaporeRaceCard.sqlite	turfclub_SingaporeRaceCard.sqlite.zip	auto_update	color_image	horse00.png horse01.jpg
+```
 
 ##Decompress
 
