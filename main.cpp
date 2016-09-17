@@ -25,11 +25,11 @@ int main(int argc, char *argv[])
 
     QCommandLineOption compress_file(QStringList() << "c" << "compress_file",
                                      QCoreApplication::translate("main", "location of compression <file>"),
-                                     "file", "compress_data.txt");
+                                     "file", "compress_data.tsv");
     parser.addOption(compress_file);
     QCommandLineOption decompress_file(QStringList() << "u" << "uncompress_file",
                                        QCoreApplication::translate("main", "location of decompression <file>"),
-                                       "file", "decompress_data.txt");
+                                       "file", "decompress_data.tsv");
     parser.addOption(decompress_file);
 
     parser.process(app);
