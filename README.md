@@ -57,7 +57,7 @@ C:/turf_club_statistic/turfclub_SingaporeRaceCard.sqlite	turfclub_SingaporeRaceC
 C:/turf_club_statistic/color	color.zip
 ```
 
-Specify the folder(target folder) you want to compress, the desire output, the file/folder you do not want to compress in the target folder
+Specify the folder(target folder) you want to compress, the desire output, the file/folder you do not want to compress in the target folder.
 First column is the file/folder you want to compress, second column is the absolute path after compress, third...n columns are the files/folders you want to exclude
 
 ```
