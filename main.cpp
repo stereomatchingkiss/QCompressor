@@ -90,21 +90,18 @@ void compress_decompress(QString const &file_location, bool is_compress = true)
         auto line = stream.readLine();
         while(!line.isEmpty()){            
             auto const split_str = line.split("\t");
-            QString compress_type;
-            QString input_file;
-            QString output_as;
             if(is_compress && split_str.size() >= 2){
-                input_file = split_str[0];
-                output_as = split_str[1];
+                QString const input_file = split_str[0];
+                QString const output_as = split_str[1];
                 if(split_str.size() == 2){
                     compress(input_file, output_as, {});
                 }else{
                     compress(input_file, output_as, split_str.mid(2));
                 }
             }else if(split_str.size() >= 3){
-                compress_type = split_str[0];
-                input_file = split_str[1];
-                output_as = split_str[2];
+                QString const compress_type = split_str[0];
+                QString const input_file = split_str[1];
+                QString const output_as = split_str[2];
                 decompress(compress_type, input_file, output_as);
             }else{
                 qDebug()<<"fail to parse compress file or decompress file";
